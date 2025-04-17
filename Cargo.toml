@@ -24,11 +24,11 @@ sha2 = "=0.11.0-pre.4"
 x509-cert = { version = "=0.3.0-pre.0", features = [ "builder", "hazmat" ] }
 
 [dependencies]
-aes = { version = "=0.9.0-pre.2", features = ["zeroize"] }
+aes = { version = "=0.9.0-pre.1", features = ["zeroize"] }
 bitflags = "2.5.0"
-cipher = { version = "=0.5.0-pre.7", features = ["rand_core"] }
+cipher = { version = "=0.5.0-pre.6", features = ["rand_core"] }
 der = "=0.8.0-rc.1"
-des = "=0.9.0-pre.2"
+des = "=0.9.0-pre.1"
 elliptic-curve = "=0.14.0-rc.1"
 hex = { package = "base16ct", version = "0.2", features = ["alloc"] }
 log = "0.4"
