@@ -163,7 +163,7 @@ impl MgmAlgorithmId {
     }
 
     /// Looks up the algorithm for the given Yubikey's current management key.
-    fn query(txn: &Transaction<'_>) -> Result<Self> {
+    pub(crate) fn query(txn: &Transaction<'_>) -> Result<Self> {
         match txn.get_metadata(crate::piv::SlotId::Management(ManagementSlotId::Management)) {
             Ok(metadata) => match metadata.algorithm {
                 SlotAlgorithmId::Management(alg) => Ok(alg),

@@ -36,7 +36,7 @@ use crate::{
     chuid::ChuId,
     config::Config,
     error::{Error, Result},
-    mgm::MgmKey,
+    mgm::{MgmAlgorithmId, MgmKey},
     piv,
     reader::{Context, Reader},
     transaction::Transaction,
@@ -408,6 +408,12 @@ impl YubiKey {
     /// Get Cardholder Capability Container (CCC) Identifier.
     pub fn cccid(&mut self) -> Result<CccId> {
         CccId::get(self)
+    }
+
+    /// Gets the management key algorithm
+    pub fn management_key_algorithm(&mut self) -> Result<MgmAlgorithmId> {
+        let txn = self.begin_transaction()?;
+        MgmAlgorithmId::query(&txn)
     }
 
     /// Authenticate to the card using the provided management key (MGM).
